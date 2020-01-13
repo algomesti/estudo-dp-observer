@@ -8,7 +8,7 @@ class subject
     {
     }
 
-    public function subscribe($observerClass)
+    public function subscribe(observerInterface $observerClass)
     {
         $this->observers[] = $observerClass;
     }

@@ -1,6 +1,7 @@
 <?php
-require_once 'observerAbstract.php';
-class classe2 extends observerAbstract
+require_once 'observerInterface.php';
+
+class classe2 implements observerInterface
 {
     public function run(array $parameters) : void
     {

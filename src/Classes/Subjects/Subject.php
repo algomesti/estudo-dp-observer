@@ -3,7 +3,7 @@ declare(strict_types=1);
 
 namespace Observer\Classes\Subjects;
 
-use Observer\Classes\ObserverAbstract;
+use Observer\Classes\ObserverInterface;
 
 class Subject
 {
@@ -13,7 +13,7 @@ class Subject
     {
     }
 
-    public function subscribe(ObserverAbstract $observerClass)
+    public function subscribe(ObserverInterface $observerClass)
     {
         $this->observers[] = $observerClass;
     }

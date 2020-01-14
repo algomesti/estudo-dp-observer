@@ -3,9 +3,9 @@ declare(strict_types=1);
 
 namespace Observer\Classes\Observers;
 
-use Observer\Classes\ObserverAbstract;
+use Observer\Classes\ObserverInterface;
 
-class Classe1 extends ObserverAbstract
+class Classe1 implements ObserverInterface
 {
     public function run(array $parameters) : void
     {

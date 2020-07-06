@@ -11,6 +11,14 @@ class Subject
 
     public function __construct()
     {
+        printf("%s %s", "\n", str_repeat("=", 80));
+        printf("%s %s", "\n", __CLASS__);
+        printf("%s %s", "\n", str_repeat("=", 80));
+    }
+
+    public function __destruct()
+    {
+        printf("%s %s %s", "\n", str_repeat("=", 80), "\n\n\n");
     }
 
     public function subscribe(ObserverInterface $observerClass)
@@ -18,13 +26,21 @@ class Subject
         $this->observers[] = $observerClass;
     }
 
-    public function unSubscribe()
+    public function unSubscribe($observerClass)
     {
+        $this->observers = array_filter(
+            $this->observers,
+            function ($observer) use ($observerClass) {
+                if (get_class($observer) === get_class($observerClass)) {
+                    return false;
+                }
+                return true;
+            }
+        );
     }
 
-    public function imprime(string $texto, $parameters)
+    public function imprime($parameters)
     {
-        echo "\n $texto";
         $this->notify($parameters);
     }
 

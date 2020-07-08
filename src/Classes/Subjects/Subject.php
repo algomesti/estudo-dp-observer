@@ -41,13 +41,13 @@ class Subject
 
     public function imprime($parameters)
     {
-        $this->notify($parameters);
+        $this->notifyAll($parameters);
     }
 
-    public function notify($parameters)
+    public function notifyAll($parameters)
     {
         foreach ($this->observers as $observer) {
-            $observer->run($parameters);
+            $observer->notify($parameters);
         }
     }
 }

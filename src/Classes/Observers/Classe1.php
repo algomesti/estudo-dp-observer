@@ -8,7 +8,7 @@ use Observer\Classes\ObserverInterface;
 
 class Classe1 implements ObserverInterface
 {
-    public function run(array $parameters) : void
+    public function notify(array $parameters) : void
     {
         printf(
             "%s%s%s%s%s%s%s",
